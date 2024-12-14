@@ -1,0 +1,10 @@
+services:
+  mysql:
+    image: 'mysql:9.1.0'
+    environment:
+      - 'MYSQL_DATABASE=learning-navigator'
+      - 'MYSQL_PASSWORD=learning-navigator'
+      - 'MYSQL_ROOT_PASSWORD=learning-navigator-root-password'
+      - 'MYSQL_USER=learning-navigator'
+    ports:
+      - '3306:3306'

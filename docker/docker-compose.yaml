@@ -1,0 +1,23 @@
+services:
+  app:
+    image: noozecrypt/learning-navigator:1.0.0
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/learning-navigator
+      SPRING_DATASOURCE_USERNAME: learning-navigator
+      SPRING_DATASOURCE_PASSWORD: learning-navigator
+      SPRING_DOCKER_COMPOSE_ENABLED: false
+    restart: always
+    depends_on:
+      - db
+
+  db:
+    image: 'mysql:9.1.0'
+    environment:
+      - 'MYSQL_DATABASE=learning-navigator'
+      - 'MYSQL_PASSWORD=learning-navigator'
+      - 'MYSQL_ROOT_PASSWORD=learning-navigator-root-password'
+      - 'MYSQL_USER=learning-navigator'
+    ports:
+      - '3306:3306'
